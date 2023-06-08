@@ -12,6 +12,3 @@
 #define mr_unsign32 unsigned int
 #define mr_unsign64 unsigned long long
 #define MAXBASE ((mr_small)1<<(MIRACL-1))
-
-
-#define MR_NOASM

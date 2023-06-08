@@ -28,19 +28,33 @@ Big H1(const char *string)
     return h;
 }
 
-int main(){
+int main(int argc, char *argv[]){
     miracl *mip = &precision;
 
     // time_t seed;
     // time(&seed);
     // irand((long)seed); /* change parameter for different values */
+    if( argc != 2 )
+    {
+      printf("Usage: ./op-ecc param\n");
+      exit(-1);
+    }
+
+    ifstream common(argv[1]); /* construct file I/O streams */
+    if (!common.is_open()) {
+        cout << argv[1] << "打开失败！" << endl;
+        system("pwd");
+        exit(-1);
+    } 
+
+
     irand(2022l); // 置随机种子
 
     // 椭圆曲线参数读入
     Big a, b, p, q, x, y;
     ECn g;
     int bits;
-    ifstream common("common.ecs"); /* construct file I/O streams */
+  
     /* get common data */
     common >> bits;
     mip->IOBASE = 16;
