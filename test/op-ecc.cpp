@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <ctime>
 #include "big.h"
 #include "ecn.h"
 #ifdef OPENSSL
